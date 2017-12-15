@@ -1,0 +1,6 @@
+# 过滤log文件夹
+/log/
+/vendor/src/
+/bin/
+/pkg/
+/.idea/

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+OLDDIR=$(cd "$(dirname "$0")";pwd)
+K8S_DIR=../
+
+# stop scheduler
+sudo systemctl stop kube-scheduler
+
+# change dir
+cd ${K8S_DIR}
+
+# make k8s scheduler
+make
+
+# copy scheduler
+sudo cp ./bin/kube-scheduler /usr/local/bin/
+
+# restart k8s scheduler
+sudo systemctl restart kube-scheduler
+
+# back work dir
+cd ${OLDDIR}

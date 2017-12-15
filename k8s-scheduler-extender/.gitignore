@@ -1,0 +1,5 @@
+# ignore auto create file
+bin/
+pkg/
+vendor/src/
+.idea/

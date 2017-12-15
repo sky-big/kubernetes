@@ -1,0 +1,15 @@
+#!/bin/sh
+
+case $1 in
+    scheduler)
+        cd ../bin
+        sudo ./scheduler --logtostderr=true
+        ;;
+    watcher)
+        cd ../bin
+        sudo ./watcher --logtostderr=true --config=../conf/watcher.conf
+        ;;
+    *)
+        echo "bad args"
+        ;;
+esac

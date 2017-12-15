@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+  namespace: default
+spec:
+  containers:
+  - image: hub.c.163.com/library/busybox
+    command:
+    - sleep
+    - "3600"
+    imagePullPolicy: IfNotPresent
+    name: busybox
+    volumeMounts:
+    - mountPath: /var/www
+      name: volume-test
+  volumes:
+  - name: volume-test
+    emptyDir:
+      path: /data

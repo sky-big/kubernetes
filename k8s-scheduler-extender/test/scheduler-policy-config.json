@@ -1,0 +1,31 @@
+{
+  "kind" : "Policy",
+  "apiVersion" : "v1",
+  "predicates": [
+    {
+      "name": "HostName"
+    },
+    {
+      "name": "MatchNodeSelector"
+    },
+    {
+      "name": "PodFitsResources"
+    }
+  ],
+  "priorities": [
+    {
+      "name": "LeastRequestedPriority",
+      "weight": 1
+    }
+  ],
+  "extenders": [
+    {
+      "urlPrefix": "http://0.0.0.0:10003/storage/scheduler",
+      "filterVerb": "predicate",
+      "prioritizeVerb": "priority",
+      "weight": 1000,
+      "nodeCacheCapable": true,
+      "enableHttps": false
+    }
+  ]
+}
