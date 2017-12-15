@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-test-control
+  namespace: default
+spec:
+  containers:
+  - name: my-test-control
+    image: "192.168.152.134:5000/my-test-control:latest"
+    imagePullPolicy: Always
+  restartPolicy: Always
